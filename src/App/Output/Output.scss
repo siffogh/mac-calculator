@@ -1,0 +1,17 @@
+.output {
+  position: relative;
+  flex-basis: 20%;
+  background: #111111;
+
+  .output-text {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    transform-origin: right;
+    white-space: nowrap;
+    line-height: 20vh;
+    @include font(10em);
+  }
+}

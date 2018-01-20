@@ -1,0 +1,20 @@
+@mixin font ($size, $weight:lighter) {
+  font: {
+    family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    size: $size;
+    weight: $weight;
+  }
+}
+
+html, body {
+  margin: 0;
+}
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+@import 'Calculator/Calculator';
+@import 'Output/Output';
+@import 'Buttons/Buttons';
+@import 'Button/Button';
