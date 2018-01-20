@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils index # operations buttons availableShortcuts 1`] = `
+Array [
+  "/",
+  "*",
+  "-",
+  "+",
+  undefined,
+  "%",
+  "Enter",
+  undefined,
+  "Escape",
+  "7",
+  "8",
+  "9",
+  "4",
+  "5",
+  "6",
+  "1",
+  "2",
+  "3",
+  "0",
+]
+`;
+
+exports[`utils index # operations buttons buttonsData 1`] = `
+Array [
+  Object {
+    "label": "÷",
+    "priority": "HIGH",
+    "shortcut": "/",
+    "type": "Binary",
+    "value": "divide",
+    "work": [Function],
+  },
+  Object {
+    "label": "×",
+    "priority": "HIGH",
+    "shortcut": "*",
+    "type": "Binary",
+    "value": "multiply",
+    "work": [Function],
+  },
+  Object {
+    "label": "−",
+    "priority": "LOW",
+    "shortcut": "-",
+    "type": "Binary",
+    "value": "subtract",
+    "work": [Function],
+  },
+  Object {
+    "label": "+",
+    "priority": "LOW",
+    "shortcut": "+",
+    "type": "Binary",
+    "value": "add",
+    "work": [Function],
+  },
+  Object {
+    "label": "+/-",
+    "type": "Unary",
+    "value": "negate",
+    "work": [Function],
+  },
+  Object {
+    "label": "%",
+    "shortcut": "%",
+    "type": "Unary",
+    "value": "percent",
+    "work": [Function],
+  },
+  Object {
+    "label": "=",
+    "shortcut": "Enter",
+    "type": "Equal",
+    "value": "equal",
+  },
+  Object {
+    "label": ",",
+    "type": "Dot",
+    "value": "dot",
+  },
+  Object {
+    "label": "AC",
+    "nonInitialLabel": "C",
+    "shortcut": "Escape",
+    "type": "Reset",
+    "value": "reset",
+  },
+  Object {
+    "label": "7",
+    "shortcut": "7",
+    "span": 1,
+    "type": "Digit",
+    "value": "7",
+  },
+  Object {
+    "label": "8",
+    "shortcut": "8",
+    "span": 1,
+    "type": "Digit",
+    "value": "8",
+  },
+  Object {
+    "label": "9",
+    "shortcut": "9",
+    "span": 1,
+    "type": "Digit",
+    "value": "9",
+  },
+  Object {
+    "label": "4",
+    "shortcut": "4",
+    "span": 1,
+    "type": "Digit",
+    "value": "4",
+  },
+  Object {
+    "label": "5",
+    "shortcut": "5",
+    "span": 1,
+    "type": "Digit",
+    "value": "5",
+  },
+  Object {
+    "label": "6",
+    "shortcut": "6",
+    "span": 1,
+    "type": "Digit",
+    "value": "6",
+  },
+  Object {
+    "label": "1",
+    "shortcut": "1",
+    "span": 1,
+    "type": "Digit",
+    "value": "1",
+  },
+  Object {
+    "label": "2",
+    "shortcut": "2",
+    "span": 1,
+    "type": "Digit",
+    "value": "2",
+  },
+  Object {
+    "label": "3",
+    "shortcut": "3",
+    "span": 1,
+    "type": "Digit",
+    "value": "3",
+  },
+  Object {
+    "label": "0",
+    "shortcut": "0",
+    "span": 2,
+    "type": "Digit",
+    "value": "0",
+  },
+]
+`;
+
+exports[`utils index # operations buttons digits 1`] = `
+Array [
+  Object {
+    "label": "7",
+    "shortcut": "7",
+    "span": 1,
+    "type": "Digit",
+    "value": "7",
+  },
+  Object {
+    "label": "8",
+    "shortcut": "8",
+    "span": 1,
+    "type": "Digit",
+    "value": "8",
+  },
+  Object {
+    "label": "9",
+    "shortcut": "9",
+    "span": 1,
+    "type": "Digit",
+    "value": "9",
+  },
+  Object {
+    "label": "4",
+    "shortcut": "4",
+    "span": 1,
+    "type": "Digit",
+    "value": "4",
+  },
+  Object {
+    "label": "5",
+    "shortcut": "5",
+    "span": 1,
+    "type": "Digit",
+    "value": "5",
+  },
+  Object {
+    "label": "6",
+    "shortcut": "6",
+    "span": 1,
+    "type": "Digit",
+    "value": "6",
+  },
+  Object {
+    "label": "1",
+    "shortcut": "1",
+    "span": 1,
+    "type": "Digit",
+    "value": "1",
+  },
+  Object {
+    "label": "2",
+    "shortcut": "2",
+    "span": 1,
+    "type": "Digit",
+    "value": "2",
+  },
+  Object {
+    "label": "3",
+    "shortcut": "3",
+    "span": 1,
+    "type": "Digit",
+    "value": "3",
+  },
+  Object {
+    "label": "0",
+    "shortcut": "0",
+    "span": 2,
+    "type": "Digit",
+    "value": "0",
+  },
+]
+`;
+
+exports[`utils index # operations buttons getDataByShortcut getDataByShortcut({ shortcut: '+' }) 1`] = `
+Object {
+  "label": "+",
+  "priority": "LOW",
+  "shortcut": "+",
+  "type": "Binary",
+  "value": "add",
+  "work": [Function],
+}
+`;
+
+exports[`utils index # operations buttons getDataByValue getDataByValue({ value: 'add' }) 1`] = `
+Object {
+  "label": "+",
+  "priority": "LOW",
+  "shortcut": "+",
+  "type": "Binary",
+  "value": "add",
+  "work": [Function],
+}
+`;
