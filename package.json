@@ -4,9 +4,23 @@
   "description": "Messing around with React to create an OSX calculator clone",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "build": " ./node_modules/.bin/webpack  --config webpack.prod.js --define process.env.NODE_ENV=\"'production'\"",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.dev.js"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFiles": [
+      "./test/jestSetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
   },
   "dependencies": {
     "bignumber.js": "^5.0.0",
@@ -26,6 +40,9 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.0",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",
