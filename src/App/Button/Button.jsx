@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Calculator from '../Calculator/Calculator';
+import Calculator from '../Calculator';
 import { getDataByValue } from '../../utils';
 
 class Button extends React.Component {
   static propTypes = {
-    value: PropTypes.string.isRequired
+    value: PropTypes.string,
+    span: PropTypes.string,
+    nonInitialLabel: PropTypes.string
+  };
+
+  static defaultProps = {
+    value: undefined,
+    span: undefined,
+    nonInitialLabel: undefined
   };
 
   static contextTypes = {
@@ -21,17 +29,15 @@ class Button extends React.Component {
   };
 
   render() {
-    const { value } = this.props;
+    const { value = '', span = 1, nonInitialLabel } = this.props;
     const { initial } = this.context[Calculator.CALCULATOR_CONTEXT];
     const buttonData = getDataByValue({ value });
 
     if (!buttonData) {
-      return '';
+      return <input type="button" />;
     }
 
-    const {
-      type, label, nonInitialLabel, span
-    } = buttonData;
+    const { type, label } = buttonData;
 
     return (
       <input

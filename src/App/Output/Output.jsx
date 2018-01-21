@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Calculator from '../Calculator/Calculator';
+import Calculator from '../Calculator';
 
 class Output extends React.Component {
   static contextTypes = {

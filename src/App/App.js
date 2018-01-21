@@ -1,17 +1,17 @@
 import React from 'react';
 
 import './style.scss';
-import Calculator from './Calculator/Calculator';
-import Output from './Output/Output';
-import Buttons from './Buttons/Buttons';
-import Button from './Button/Button';
+import Calculator from './Calculator';
+import Output from './Output';
+import Buttons from './Buttons';
+import Button from './Button';
 
 const App = () => (
   <div className="app">
     <Calculator>
       <Output />
       <Buttons>
-        <Button value="reset" />
+        <Button value="reset" nonInitialLabel="C" />
         <Button value="negate" />
         <Button value="percent" />
         <Button value="divide" />
@@ -27,7 +27,7 @@ const App = () => (
         <Button value="2" />
         <Button value="3" />
         <Button value="add" />
-        <Button value="0" />
+        <Button value="0" span="2" />
         <Button value="dot" />
         <Button value="equal" />
       </Buttons>

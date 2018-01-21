@@ -91,8 +91,7 @@ export const digits = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0]
     value: `${digit}`,
     label: `${digit}`,
     shortcut: `${digit}`,
-    type: 'Digit',
-    span: digit === 0 ? 2 : 1
+    type: 'Digit'
   }));
 
 /**
@@ -158,7 +157,6 @@ export const buttonsData = [
   {
     value: 'reset',
     label: 'AC',
-    nonInitialLabel: 'C',
     shortcut: 'Escape',
     type: 'Reset'
   },
