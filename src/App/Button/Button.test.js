@@ -70,5 +70,20 @@ describe('Button', () => {
         expect(wrapper).toMatchSnapshot();
       });
     });
+
+    test('onclick calls context.handleClick with value parameter', () => {
+      const handleInput = jest.fn();
+      const context = {
+        [Calculator.CALCULATOR_CONTEXT]: {
+          initial: true,
+          handleInput
+        }
+      };
+
+      const value = 'add';
+      const wrapper = mount(<Button value={value} />, { context });
+      wrapper.find('input').simulate('click');
+      expect(handleInput).toBeCalledWith({ value });
+    });
   });
 });
