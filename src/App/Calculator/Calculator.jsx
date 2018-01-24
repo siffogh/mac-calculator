@@ -62,6 +62,10 @@ class Calculator extends React.Component {
   }
 
 
+  /**
+   * Called whenever a key is pressed. It looks
+   * for the function associated with the key pressed and calls it.
+   */
   handleKeyPress = ({ key: shortcut }) => {
     if (!availableShortcuts.includes(shortcut)) {
       return;
@@ -70,6 +74,10 @@ class Calculator extends React.Component {
     this.handleInput({ value });
   }
 
+  /**
+   * Maps any input (number or operation) to its respective
+   * handler function.
+   */
   handleInput = ({ value: targetValue }) => {
     const targetData = getDataByValue({ value: targetValue });
     return targetData ?
@@ -77,6 +85,9 @@ class Calculator extends React.Component {
       null;
   };
 
+  /**
+   * Handler function for digit input
+   */
   handleDigit = ({ value: digit }) => {
     const target = { ...this.state.target };
     const inputs = [...this.state.inputs];
@@ -96,6 +107,10 @@ class Calculator extends React.Component {
     });
   };
 
+  /**
+   * Handler function for binary operations.
+   * i.e. operations that require 2 operands.
+   */
   handleBinary = (operation) => {
     const target = { ...this.state.target };
     const pendingOps = [...this.state.pendingOps];
@@ -115,6 +130,10 @@ class Calculator extends React.Component {
       this.inputHighBinaryOp(operation);
   };
 
+  /**
+   * Handler function for low priority binary operation.
+   * eg:- +, -
+   */
   inputLowBinaryOp = (operation) => {
     const target = { ...this.state.target };
     let inputs = [...this.state.inputs];
@@ -145,6 +164,10 @@ class Calculator extends React.Component {
     });
   };
 
+  /**
+   * Handler function for high priority binary operation.
+   * eg:- *, /
+   */
   inputHighBinaryOp = (operation) => {
     const target = { ...this.state.target };
     let inputs = [...this.state.inputs];
@@ -176,6 +199,11 @@ class Calculator extends React.Component {
     });
   };
 
+  /**
+   * Handler function for unary operations.
+   * i.e. operations that require only 1 operand.
+   * eg:- +/- (negate), % (percent)
+  */
   handleUnary = ({ key, work }) => {
     const target = { ...this.state.target };
     const inputs = [...this.state.inputs];
@@ -198,6 +226,9 @@ class Calculator extends React.Component {
     });
   };
 
+  /**
+   * Handler function for dot (decimal) input.
+   */
   handleDot = () => {
     const target = { ...this.state.target };
     const inputs = [...this.state.inputs];
@@ -215,6 +246,9 @@ class Calculator extends React.Component {
     });
   };
 
+  /**
+   * Handler function for = (equal) input.
+   */
   handleEqual = () => {
     const target = { ...this.state.target };
     let inputs = [...this.state.inputs];
@@ -254,6 +288,9 @@ class Calculator extends React.Component {
     });
   };
 
+  /**
+   * Handler function for reset (AC/C) input.
+   */
   handleReset = () => this.setState(initialState);
 
   render() {
