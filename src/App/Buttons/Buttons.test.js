@@ -9,4 +9,9 @@ describe('Buttons', () => {
     const wrapper = shallow(<Buttons />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  test('renders children', () => {
+    const wrapper = shallow(<Buttons> <div className="child">Child Div</div> </Buttons>);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
