@@ -12,7 +12,7 @@ import {
   divide,
   negate,
   percent,
-  cumulate,
+  concat,
   digits,
   buttonsData,
   availableShortcuts,
@@ -114,41 +114,41 @@ describe('utils index', () => {
       });
     });
 
-    describe('cumulate', () => {
-      test('cumulate(\'1\', \'2\', START) should be \'2\'', () => {
-        expect(cumulate('1', '2', START)).toBe('2');
+    describe('concat', () => {
+      test('concat(\'1\', \'2\', START) should be \'2\'', () => {
+        expect(concat('1', '2', START)).toBe('2');
       });
 
-      test('cumulate(\'a\', \'2\', START) should be NOT_A_NUMBER', () => {
-        expect(cumulate('a', '2', START)).toBe(NOT_A_NUMBER);
+      test('concat(\'a\', \'2\', START) should be \'2\'', () => {
+        expect(concat('a', '2', START)).toBe('2');
       });
 
-      test('cumulate(\'1\', \'2\', START_DECIMAL) should be \'1.2\'', () => {
-        expect(cumulate('1', '2', START_DECIMAL)).toBe('1.2');
+      test('concat(\'1\', \'2\', START_DECIMAL) should be \'1.2\'', () => {
+        expect(concat('1', '2', START_DECIMAL)).toBe('1.2');
       });
 
-      test('cumulate(\'a\', \'2\', START_DECIMAL) should be NOT_A_NUMBER', () => {
-        expect(cumulate('a', '2', START_DECIMAL)).toBe(NOT_A_NUMBER);
+      test('concat(\'a\', \'2\', START_DECIMAL) should be NOT_A_NUMBER', () => {
+        expect(concat('a', '2', START_DECIMAL)).toBe(NOT_A_NUMBER);
       });
 
-      test('cumulate(\'1\', \'2\', CUMUL) should be \'1.2\'', () => {
-        expect(cumulate('1', '2', START_DECIMAL)).toBe('1.2');
+      test('concat(\'1\', \'2\', CUMUL) should be \'1.2\'', () => {
+        expect(concat('1', '2', START_DECIMAL)).toBe('1.2');
       });
 
-      test('cumulate(\'1\', \'2\', CUMUL) should be \'12\'', () => {
-        expect(cumulate('1', '2', CUMUL)).toBe('12');
+      test('concat(\'1\', \'2\', CUMUL) should be \'12\'', () => {
+        expect(concat('1', '2', CUMUL)).toBe('12');
       });
 
-      test('cumulate(\'a\', \'2\', CUMUL) should be NOT_A_NUMBER', () => {
-        expect(cumulate('a', '2', CUMUL)).toBe(NOT_A_NUMBER);
+      test('concat(\'a\', \'2\', CUMUL) should be NOT_A_NUMBER', () => {
+        expect(concat('a', '2', CUMUL)).toBe(NOT_A_NUMBER);
       });
 
-      test('cumulate(\'1.12\', \'3\', CUMUL_DECIMAL) should be \'1.123\'', () => {
-        expect(cumulate('1.12', '3', CUMUL_DECIMAL)).toBe('1.123');
+      test('concat(\'1.12\', \'3\', CUMUL_DECIMAL) should be \'1.123\'', () => {
+        expect(concat('1.12', '3', CUMUL_DECIMAL)).toBe('1.123');
       });
 
-      test('cumulate(\'a\', \'2\', CUMUL_DECIMAL) should be NOT_A_NUMBER', () => {
-        expect(cumulate('a', '2', CUMUL_DECIMAL)).toBe(NOT_A_NUMBER);
+      test('concat(\'a\', \'2\', CUMUL_DECIMAL) should be NOT_A_NUMBER', () => {
+        expect(concat('a', '2', CUMUL_DECIMAL)).toBe(NOT_A_NUMBER);
       });
     });
 

@@ -8,7 +8,7 @@ import {
   CUMUL_DECIMAL,
   LOW,
   availableShortcuts,
-  cumulate,
+  concat,
   multiply,
   getDataByValue,
   getDataByShortcut } from '../../utils';
@@ -92,7 +92,7 @@ class Calculator extends React.Component {
     const target = { ...this.state.target };
     const inputs = [...this.state.inputs];
     const { index, status } = { ...target };
-    const output = cumulate(inputs[index] || 0, digit, status);
+    const output = concat(inputs[index] || 0, digit, status);
     if (status === START) {
       target.status = CUMUL;
       if (index === 2 && typeof inputs[2] !== 'undefined') {

@@ -18,34 +18,36 @@ export const NOT_A_NUMBER = 'Not a number';
 
 /**
  *
- * @param destination
- * @param source
+ * @param value1
+ * @param value2
  * @param type
- * @returns  cumulated number
+ * @returns  concatinated value
  */
-export const cumulate = (destination, source, type) => {
-  let newDestination;
-  let newSource;
+export const concat = (value1, value2, type) => {
+  if (type === START) {
+    return value2;
+  }
+
   try {
-    newDestination = new BigNumber(destination);
-    newSource = new BigNumber(source);
-    if (!newDestination.isFinite() || !newSource.isFinite()) {
-      throw new Error();
+    const bigNumber1 = new BigNumber(value1);
+    const bigNumber2 = new BigNumber(value2);
+    if (!bigNumber1.isFinite() || !bigNumber2.isFinite()) {
+      throw new Error('value1 and value2 must both be finite values.');
     }
+
+    const formattedValue1 = bigNumber1.toPrecision();
+    const formattedValue2 = bigNumber2.toPrecision();
+
+    if (type === START_DECIMAL) {
+      return `${formattedValue1}.${formattedValue2}`;
+    }
+    if (type === CUMUL_DECIMAL && value1.split('.')[1] === '0') {
+      return `${formattedValue1}${formattedValue2}`;
+    }
+    return `${formattedValue1}${formattedValue2}`;
   } catch (e) {
     return NOT_A_NUMBER;
   }
-
-  if (type === START) {
-    return newSource.toPrecision();
-  }
-  if (type === START_DECIMAL) {
-    return `${destination}.${newSource.toPrecision()}`;
-  }
-  if (type === CUMUL_DECIMAL && destination.split('.')[1] === '0') {
-    return `${destination}${newSource.toPrecision()}`;
-  }
-  return `${newDestination.toPrecision()}${newSource.toPrecision()}`;
 };
 
 /**
