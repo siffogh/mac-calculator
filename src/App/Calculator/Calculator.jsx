@@ -70,7 +70,9 @@ class Calculator extends React.Component {
     if (!availableShortcuts.includes(shortcut)) {
       return;
     }
+
     const { value } = getDataByShortcut({ shortcut });
+    
     this.handleInput({ value });
   }
 
@@ -80,6 +82,7 @@ class Calculator extends React.Component {
    */
   handleInput = ({ value: targetValue }) => {
     const targetData = getDataByValue({ value: targetValue });
+
     return targetData ?
       this[`handle${targetData.type}`](targetData) :
       null;
@@ -115,6 +118,8 @@ class Calculator extends React.Component {
     const target = { ...this.state.target };
     const pendingOps = [...this.state.pendingOps];
     const { index } = { ...target };
+
+
     if (index === 0) {
       target.status = START;
       target.index = 1;
@@ -126,15 +131,15 @@ class Calculator extends React.Component {
     }
 
     return operation.priority === LOW ?
-      this.inputLowBinaryOp(operation) :
-      this.inputHighBinaryOp(operation);
+      this.handleLowBinaryOp(operation) :
+      this.handleHighBinaryOp(operation);
   };
 
   /**
    * Handler function for low priority binary operation.
    * eg:- +, -
    */
-  inputLowBinaryOp = (operation) => {
+  handleLowBinaryOp = (operation) => {
     const target = { ...this.state.target };
     let inputs = [...this.state.inputs];
     let pendingOps = [...this.state.pendingOps];
@@ -168,7 +173,7 @@ class Calculator extends React.Component {
    * Handler function for high priority binary operation.
    * eg:- *, /
    */
-  inputHighBinaryOp = (operation) => {
+  handleHighBinaryOp = (operation) => {
     const target = { ...this.state.target };
     let inputs = [...this.state.inputs];
     const pendingOps = [...this.state.pendingOps];
