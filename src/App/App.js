@@ -3,14 +3,13 @@ import React from 'react';
 import './style.scss';
 import Calculator from './Calculator';
 import Output from './Output';
-import Buttons from './Buttons';
 import Button from './Button';
 
 const App = () => (
   <div className="app">
     <Calculator>
       <Output />
-      <Buttons>
+      <div className="buttons">
         <Button value="reset" nonInitialLabel="C" />
         <Button value="negate" />
         <Button value="percent" />
@@ -30,7 +29,7 @@ const App = () => (
         <Button value="0" span="2" />
         <Button value="dot" />
         <Button value="equal" />
-      </Buttons>
+      </div>
     </Calculator>
   </div>
 );

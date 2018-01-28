@@ -72,7 +72,7 @@ class Calculator extends React.Component {
     }
 
     const { value } = getDataByShortcut({ shortcut });
-    
+
     this.handleInput({ value });
   }
 
