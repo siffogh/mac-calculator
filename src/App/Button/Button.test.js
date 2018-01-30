@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import Calculator from '../Calculator/Calculator';
+import Calculator from '../Calculator';
 import Button from './Button';
 import { getDataByValue } from '../../utils';
 
