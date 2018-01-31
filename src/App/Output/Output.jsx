@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Calculator from '../Calculator';
+
 
 class Output extends React.Component {
   static contextTypes = {
-    [Calculator.CALCULATOR_CONTEXT]: PropTypes.shape({
-      output: PropTypes.string
-    })
+    output: PropTypes.string
   };
 
   state = {
@@ -39,7 +37,7 @@ class Output extends React.Component {
           ref={this.refCallback}
           style={outputTextStyle}
         >
-          {this.context[Calculator.CALCULATOR_CONTEXT].output}
+          {this.context.output}
         </div>
       </div>
     );

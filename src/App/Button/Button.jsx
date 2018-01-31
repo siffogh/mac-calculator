@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Calculator from '../Calculator';
 import { getDataByValue } from '../../utils';
 
 class Button extends React.Component {
@@ -18,19 +17,17 @@ class Button extends React.Component {
   };
 
   static contextTypes = {
-    [Calculator.CALCULATOR_CONTEXT]: PropTypes.shape({
-      initial: PropTypes.bool,
-      handleInput: PropTypes.func
-    })
+    initial: PropTypes.bool,
+    handleInput: PropTypes.func
   };
 
   handleClick = () => {
-    this.context[Calculator.CALCULATOR_CONTEXT].handleInput({ value: this.props.value });
+    this.context.handleInput({ value: this.props.value });
   };
 
   render() {
     const { value = '', span = 1, nonInitialLabel } = this.props;
-    const { initial } = this.context[Calculator.CALCULATOR_CONTEXT];
+    const { initial } = this.context;
     const buttonData = getDataByValue({ value });
 
     if (!buttonData) {

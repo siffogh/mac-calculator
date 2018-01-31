@@ -1,35 +1,34 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import Calculator from '../Calculator';
 import Button from './Button';
 import { getDataByValue } from '../../utils';
 
 
 describe('Button', () => {
   test('renders empty button', () => {
-    const context = { [Calculator.CALCULATOR_CONTEXT]: { initial: true } };
+    const context = { initial: true };
     const wrapper = shallow(<Button />, { context });
     expect(wrapper).toMatchSnapshot();
   });
 
   describe('button with value', () => {
     test('should render button', () => {
-      const context = { [Calculator.CALCULATOR_CONTEXT]: { initial: true } };
+      const context = { initial: true };
       const value = 'add';
       const wrapper = mount(<Button value={value} />, { context });
       expect(wrapper).toMatchSnapshot();
     });
 
     test('key should be equal to \'value\' prop', () => {
-      const context = { [Calculator.CALCULATOR_CONTEXT]: { initial: true } };
+      const context = { initial: true };
       const value = 'add';
       const wrapper = mount(<Button value={value} />, { context });
       expect(wrapper.find('input').key()).toBe(value);
     });
 
     describe('className', () => {
-      const context = { [Calculator.CALCULATOR_CONTEXT]: { initial: true } };
+      const context = { initial: true };
       const value = 'add';
       const wrapper = mount(<Button value={value} />, { context });
       const { type } = getDataByValue({ value });
@@ -55,18 +54,18 @@ describe('Button', () => {
 
     describe('when prop \'initial\' changes', () => {
       test('value should be the same if a nonInitialLabel is not provided', () => {
-        const context = { [Calculator.CALCULATOR_CONTEXT]: { initial: true } };
+        const context = { initial: true };
         const wrapper = shallow(<Button value="reset" />, { context });
         expect(wrapper).toMatchSnapshot();
-        wrapper.setContext({ [Calculator.CALCULATOR_CONTEXT]: { initial: false } });
+        wrapper.setContext({ initial: false });
         expect(wrapper).toMatchSnapshot();
       });
 
       test('value should change if a nonInitialLabel is provided', () => {
-        const context = { [Calculator.CALCULATOR_CONTEXT]: { initial: true } };
+        const context = { initial: true };
         const wrapper = shallow(<Button value="reset" nonInitialLabel="C" />, { context });
         expect(wrapper).toMatchSnapshot();
-        wrapper.setContext({ [Calculator.CALCULATOR_CONTEXT]: { initial: false } });
+        wrapper.setContext({ initial: false });
         expect(wrapper).toMatchSnapshot();
       });
     });
@@ -74,10 +73,8 @@ describe('Button', () => {
     test('onclick calls context.handleClick with value parameter', () => {
       const handleInput = jest.fn();
       const context = {
-        [Calculator.CALCULATOR_CONTEXT]: {
-          initial: true,
-          handleInput
-        }
+        initial: true,
+        handleInput
       };
 
       const value = 'add';

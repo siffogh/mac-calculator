@@ -36,25 +36,19 @@ class Calculator extends React.Component {
     children: null
   };
 
-  static CALCULATOR_CONTEXT = '__calculator__';
-
   static childContextTypes = {
-    [Calculator.CALCULATOR_CONTEXT]: PropTypes.shape({
-      initial: PropTypes.bool,
-      output: PropTypes.string,
-      handleInput: PropTypes.func
-    })
+    initial: PropTypes.bool,
+    output: PropTypes.string,
+    handleInput: PropTypes.func
   };
 
   state = { ...initialState };
 
 
   getChildContext = () => ({
-    [Calculator.CALCULATOR_CONTEXT]: {
-      initial: this.state.initial,
-      output: this.state.output,
-      handleInput: this.handleInput
-    }
+    initial: this.state.initial,
+    output: this.state.output,
+    handleInput: this.handleInput
   });
 
   componentDidMount() {
