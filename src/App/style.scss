@@ -1,6 +1,6 @@
 @mixin font ($size, $weight:lighter) {
   font: {
-    family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     size: $size;
     weight: $weight;
   }
@@ -8,10 +8,13 @@
 
 html, body {
   margin: 0;
+  overflow: hidden;
 }
+
 .app {
   width: 100vw;
   height: 100vh;
+  font-size: 1vh
 }
 
 @import 'Calculator/Calculator';

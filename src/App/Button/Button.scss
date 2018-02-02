@@ -1,15 +1,13 @@
 input {
-  flex: 1;
-  min-width: 25%;
   border: 1px solid #808080;
   outline: none;
-  @include font(5em, 200);
+  @include font(7em, 200);
 
   &.Digit, &.Dot {
     background: #E0E0E0;
+    @include font(6em, 200);
   }
   &.span-2 {
-    flex-grow: 2;
     padding-right: 23px;
   }
 
@@ -20,6 +18,7 @@ input {
 
   &.Unary, &.Reset {
     background: #D6D6D6;
-    font-size: 4em;
+    @include font(5em, 200);
   }
+
 }

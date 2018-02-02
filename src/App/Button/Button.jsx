@@ -40,7 +40,8 @@ class Button extends React.Component {
       <input
         type="button"
         key={value}
-        className={`${type} ${type}-${value} span-${span}`}
+        className={`${type} ${type}-${value}`}
+        style={{ gridColumn: `span ${span}`}}
         onClick={this.handleClick}
         value={!initial && nonInitialLabel ? nonInitialLabel : label}
       />
