@@ -1,6 +1,6 @@
 # Messing around with React to create a mac calculator clone
 
-<img src='./demo.gif' height='400px'/>
+<img src='./mac-calculator-demo.gif' height='400px'/>
 
 > [Demo](https://rlyk7w975o.codesandbox.io/)
 
