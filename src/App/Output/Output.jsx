@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CalculatorContext } from '../Calculator';
 
 
 class Output extends React.Component {
-  static contextTypes = {
-    output: PropTypes.string
-  };
+  static propTypes = {
+    output: PropTypes.string.isRequired
+  }
 
   state = {
     scale: 1
@@ -37,11 +38,15 @@ class Output extends React.Component {
           ref={this.refCallback}
           style={outputTextStyle}
         >
-          {this.context.output}
+          {this.props.output}
         </div>
       </div>
     );
   }
 }
 
-export default Output;
+export default props => (
+  <CalculatorContext.Consumer>
+    {({ output }) => <Output {...props} output={output} />}
+  </CalculatorContext.Consumer>
+);

@@ -13,6 +13,8 @@ import {
   getDataByValue,
   getDataByShortcut } from '../../utils';
 
+const CalculatorContext = React.createContext();
+
 const initialState = {
   inputs: [0],
   pendingOps: [],
@@ -36,20 +38,8 @@ class Calculator extends React.Component {
     children: null
   };
 
-  static childContextTypes = {
-    initial: PropTypes.bool,
-    output: PropTypes.string,
-    handleInput: PropTypes.func
-  };
-
   state = { ...initialState };
 
-
-  getChildContext = () => ({
-    initial: this.state.initial,
-    output: this.state.output,
-    handleInput: this.handleInput
-  });
 
   componentDidMount() {
     document.onkeydown = this.handleKeyPress;
@@ -293,13 +283,18 @@ class Calculator extends React.Component {
   handleReset = () => this.setState(initialState);
 
   render() {
+    const { initial, output } = this.state;
+    const { handleInput } = this;
     return (
       <div className="calculator">
-        { this.props.children }
+        <CalculatorContext.Provider value={{ initial, output, handleInput }}>
+          { this.props.children }
+        </CalculatorContext.Provider>
       </div>
     );
   }
 }
 
+export { CalculatorContext };
 
 export default Calculator;
