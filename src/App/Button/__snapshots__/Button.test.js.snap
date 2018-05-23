@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button should render empty Button 1`] = `
+<Button>
+  <input
+    type="button"
+  />
+</Button>
+`;
+
+exports[`button should render empty button if value doesn't match 1`] = `
+<Button
+  value="somevalue"
+>
+  <input
+    type="button"
+  />
+</Button>
+`;
