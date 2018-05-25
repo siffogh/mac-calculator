@@ -2,6 +2,4 @@ node_modules
 dist
 build
 coverage
-.idea
 yarn-error.log
-.cache
