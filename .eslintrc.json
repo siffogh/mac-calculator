@@ -1,11 +1,12 @@
 {
-    "extends": "airbnb",
+    "extends": ["airbnb", "plugin:prettier/recommended"],
     "parser": "babel-eslint",
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/no-did-update-set-state": [0],
         "comma-dangle": ["error", "never"],
         "import/no-extraneous-dependencies": ["error", "never"],
+        "import/no-dynamic-require": [0],
         "react/no-unused-prop-types": ["error", "never"]
     },
     "env": {

@@ -1,28 +1,27 @@
 const path = require('path');
+const merge = require('webpack-merge');
 
-module.exports = {
-  entry: './src',
-  output: {
-    publicPath: '/dist/',
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+const mode = process.env.WEBPACK_SERVE ? 'development' : 'production';
+const config = require(`./build-config/${mode}`);
+
+module.exports = merge(
+  {
+    mode,
+    entry: './src',
+    output: {
+      publicPath: '/dist/',
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js'
+    },
+    module: {
+      rules: [
+        { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
+        {
+          test: /\.scss$/,
+          use: ['style-loader', 'css-loader', 'sass-loader']
+        }
+      ]
+    }
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader', // creates style nodes from JS strings
-          'css-loader', // translates CSS into CommonJS
-          'sass-loader' // compiles Sass to CSS
-        ]
-      }
-    ]
-  },
-  mode: process.env.WEBPACK_SERVE ? 'development' : 'production'
-};
+  config
+);
