@@ -10,17 +10,8 @@
     "build": "webpack --mode=production",
     "start": "webpack-serve --mode=development"
   },
-  "jest": {
-    "verbose": true,
-    "setupFiles": [
-      "./test/jestSetup.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
+  "babel" : {
+    "presets": "./babelrc.js"
   },
   "dependencies": {
     "bignumber.js": "^5.0.0",
