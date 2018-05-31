@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { getDataByValue } from '../../utils';
+import styles from './Button.style';
 
 class Button extends React.Component {
   static propTypes = {
@@ -36,11 +37,12 @@ class Button extends React.Component {
 
     const { type, label } = buttonData;
 
+    const Input = styles[type];
+
     return (
-      <input
+      <Input
         type="button"
         key={value}
-        className={`${type} ${type}-${value}`}
         style={{ gridColumn: `span ${span}` }}
         onClick={this.handleClick}
         value={!initial && nonInitialLabel ? nonInitialLabel : label}
@@ -48,6 +50,5 @@ class Button extends React.Component {
     );
   }
 }
-
 
 export default Button;

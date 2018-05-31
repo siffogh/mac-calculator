@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './Calculator.style';
+
 import {
   START,
   START_DECIMAL,
@@ -11,7 +13,8 @@ import {
   concat,
   multiply,
   getDataByValue,
-  getDataByShortcut } from '../../utils';
+  getDataByShortcut
+} from '../../utils';
 
 const CalculatorContext = React.createContext();
 
@@ -40,11 +43,9 @@ class Calculator extends React.Component {
 
   state = { ...initialState };
 
-
   componentDidMount() {
     document.onkeydown = this.handleKeyPress;
   }
-
 
   /**
    * Called whenever a key is pressed. It looks
@@ -58,7 +59,7 @@ class Calculator extends React.Component {
     const { value } = getDataByShortcut({ shortcut });
 
     this.handleInput({ value });
-  }
+  };
 
   /**
    * Maps any input (number or operation) to its respective
@@ -67,9 +68,7 @@ class Calculator extends React.Component {
   handleInput = ({ value: targetValue }) => {
     const targetData = getDataByValue({ value: targetValue });
 
-    return targetData ?
-      this[`handle${targetData.type}`](targetData) :
-      null;
+    return targetData ? this[`handle${targetData.type}`](targetData) : null;
   };
 
   /**
@@ -90,7 +89,10 @@ class Calculator extends React.Component {
     }
     inputs[index] = output;
     this.setState({
-      inputs, target, output, initial: false
+      inputs,
+      target,
+      output,
+      initial: false
     });
   };
 
@@ -98,11 +100,10 @@ class Calculator extends React.Component {
    * Handler function for binary operations.
    * i.e. operations that require 2 operands.
    */
-  handleBinary = (operation) => {
+  handleBinary = operation => {
     const target = { ...this.state.target };
     const pendingOps = [...this.state.pendingOps];
     const { index } = { ...target };
-
 
     if (index === 0) {
       target.status = START;
@@ -114,16 +115,16 @@ class Calculator extends React.Component {
       });
     }
 
-    return operation.priority === LOW ?
-      this.handleLowBinaryOp(operation) :
-      this.handleHighBinaryOp(operation);
+    return operation.priority === LOW
+      ? this.handleLowBinaryOp(operation)
+      : this.handleHighBinaryOp(operation);
   };
 
   /**
    * Handler function for low priority binary operation.
    * eg:- +, -
    */
-  handleLowBinaryOp = (operation) => {
+  handleLowBinaryOp = operation => {
     const target = { ...this.state.target };
     let inputs = [...this.state.inputs];
     let pendingOps = [...this.state.pendingOps];
@@ -136,7 +137,10 @@ class Calculator extends React.Component {
       }
       pendingOps[0] = operation;
     } else if (typeof inputs[2] !== 'undefined') {
-      output = pendingOps[0].work(inputs[0], pendingOps[1].work(inputs[1], inputs[2]));
+      output = pendingOps[0].work(
+        inputs[0],
+        pendingOps[1].work(inputs[1], inputs[2])
+      );
     } else {
       output = pendingOps[0].work(inputs[0], inputs[1]);
       inputs[1] = output;
@@ -157,7 +161,7 @@ class Calculator extends React.Component {
    * Handler function for high priority binary operation.
    * eg:- *, /
    */
-  handleHighBinaryOp = (operation) => {
+  handleHighBinaryOp = operation => {
     const target = { ...this.state.target };
     let inputs = [...this.state.inputs];
     const pendingOps = [...this.state.pendingOps];
@@ -192,7 +196,7 @@ class Calculator extends React.Component {
    * Handler function for unary operations.
    * i.e. operations that require only 1 operand.
    * eg:- +/- (negate), % (percent)
-  */
+   */
   handleUnary = ({ key, work }) => {
     const target = { ...this.state.target };
     const inputs = [...this.state.inputs];
@@ -202,16 +206,20 @@ class Calculator extends React.Component {
       output = work(inputs[index]);
       target.status = START;
     } else {
-      output = key === '%' ?
-        multiply(inputs[index - 1], work(inputs[index - 1])) :
-        work(inputs[index - 1]);
+      output =
+        key === '%'
+          ? multiply(inputs[index - 1], work(inputs[index - 1]))
+          : work(inputs[index - 1]);
       if (index === 1) {
         target.index = 0;
       }
     }
     inputs[index] = output;
     this.setState({
-      inputs, target, output, initial: false
+      inputs,
+      target,
+      output,
+      initial: false
     });
   };
 
@@ -231,7 +239,10 @@ class Calculator extends React.Component {
     }
     const output = `${inputs[index]}.`;
     this.setState({
-      inputs, target, output, initial: false
+      inputs,
+      target,
+      output,
+      initial: false
     });
   };
 
@@ -260,10 +271,16 @@ class Calculator extends React.Component {
         break;
       default:
         if (typeof inputs[2] !== 'undefined') {
-          output = pendingOps[0].work(inputs[0], pendingOps[1].work(inputs[1], inputs[2]));
+          output = pendingOps[0].work(
+            inputs[0],
+            pendingOps[1].work(inputs[1], inputs[2])
+          );
           inputs = [inputs[0], inputs[2]];
         } else {
-          output = pendingOps[0].work(pendingOps[1].work(inputs[0], inputs[1]), inputs[1]);
+          output = pendingOps[0].work(
+            pendingOps[1].work(inputs[0], inputs[1]),
+            inputs[1]
+          );
         }
         pendingOps = [pendingOps[1]];
     }
@@ -286,11 +303,11 @@ class Calculator extends React.Component {
     const { initial, output } = this.state;
     const { handleInput } = this;
     return (
-      <div className="calculator">
+      <styles.Calculator>
         <CalculatorContext.Provider value={{ initial, output, handleInput }}>
-          { this.props.children }
+          {this.props.children}
         </CalculatorContext.Provider>
-      </div>
+      </styles.Calculator>
     );
   }
 }

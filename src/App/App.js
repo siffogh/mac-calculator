@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './style.scss';
+import styles from './App.style';
 import Calculator from './Calculator';
 import Output from './Output';
 import Button from './Button';
 
 const App = () => (
-  <div className="app">
+  <styles.App>
     <Calculator>
       <Output />
       <Button value="reset" nonInitialLabel="C" />
@@ -29,8 +29,7 @@ const App = () => (
       <Button value="dot" />
       <Button value="equal" />
     </Calculator>
-  </div>
+  </styles.App>
 );
-
 
 export default App;

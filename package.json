@@ -7,8 +7,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "webpack --mode=production",
-    "start": "webpack-serve --mode=development"
+    "build": "webpack --e=production",
+    "start": "webpack-dev-server --mode=development"
   },
   "babel": {
     "presets": "./babelrc.js"
@@ -19,7 +19,8 @@
   "dependencies": {
     "bignumber.js": "^5.0.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "styled-components": "^3.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -40,11 +41,9 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react": "^7.8.2",
     "jest": "^22.0.6",
-    "node-sass": "^4.7.1",
     "prop-types": "^15.6.0",
-    "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4",
