@@ -7,7 +7,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "webpack --e=production",
+    "build": "webpack --mode=production",
     "start": "webpack-dev-server --mode=development"
   },
   "babel": {
@@ -47,9 +47,8 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.2",
-    "webpack-serve": "^1.0.2"
+    "webpack-dashboard": "^2.0.0",
+    "webpack-dev-server": "^3.1.4"
   },
   "repository": "https://github.com/siffogh/mac-calculator",
   "author": "Seif Eddine Ghezala <siffogh3@gmail.com>",
