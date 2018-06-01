@@ -9,7 +9,7 @@ describe('button', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should render empty button if value doesn\'t match', () => {
+  test("should render empty button if value doesn't match", () => {
     const wrapper = mount(<Button value="somevalue" />);
     expect(wrapper.find('input[type="button"]')).toBeTruthy();
     expect(wrapper).toMatchSnapshot();

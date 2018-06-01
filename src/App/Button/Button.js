@@ -32,15 +32,15 @@ class Button extends React.Component {
     const buttonData = getDataByValue({ value });
 
     if (!buttonData) {
-      return <input type="button" />;
+      return <styles.Input type="button" />;
     }
 
     const { type, label } = buttonData;
 
-    const Input = styles[type];
+    const StyledInput = styles[type];
 
     return (
-      <Input
+      <StyledInput
         type="button"
         key={value}
         style={{ gridColumn: `span ${span}` }}

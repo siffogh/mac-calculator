@@ -1,19 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`button should render empty Button 1`] = `
+.c0 {
+  border: 1px solid #808080;
+  outline: none;
+}
+
 <Button>
-  <input
+  <styled.input
     type="button"
-  />
+  >
+    <input
+      className="c0"
+      type="button"
+    />
+  </styled.input>
 </Button>
 `;
 
 exports[`button should render empty button if value doesn't match 1`] = `
+.c0 {
+  border: 1px solid #808080;
+  outline: none;
+}
+
 <Button
   value="somevalue"
 >
-  <input
+  <styled.input
     type="button"
-  />
+  >
+    <input
+      className="c0"
+      type="button"
+    />
+  </styled.input>
 </Button>
 `;
