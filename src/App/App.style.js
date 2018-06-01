@@ -1,13 +1,11 @@
 import styled, { injectGlobal } from 'styled-components';
 
-injectGlobal([
-  `
+injectGlobal`
 html, body {
   margin: 0;
   overflow: hidden;
 }
-`
-]);
+`;
 
 const App = styled.div`
   width: 100vw;

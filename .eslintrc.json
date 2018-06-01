@@ -8,7 +8,8 @@
         "import/no-extraneous-dependencies": ["error", "never"],
         "import/no-dynamic-require": [0],
         "react/no-unused-prop-types": ["error", "never"],
-        "global-require": [0]
+        "global-require": [0],
+        "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
     },
     "env": {
       "browser": true,
