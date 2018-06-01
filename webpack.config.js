@@ -1,7 +1,4 @@
 const path = require('path');
-const DashboardPlugin = require('webpack-dashboard/plugin');
-
-const port = 1234;
 
 module.exports = {
   entry: './src',
@@ -12,10 +9,9 @@ module.exports = {
   },
   devServer: {
     open: true,
-    port
+    port: 3000
   },
   module: {
     rules: [{ test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }]
-  },
-  plugins: [new DashboardPlugin({ port })]
+  }
 };

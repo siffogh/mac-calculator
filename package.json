@@ -47,7 +47,6 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4",
-    "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^3.1.4"
   },
   "repository": "https://github.com/siffogh/mac-calculator",
